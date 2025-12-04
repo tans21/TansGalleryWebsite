@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * GLOBAL STYLES AND COLOR SYSTEM
+ * 
+ * This file contains CSS variables for colors used throughout the website.
+ * Change these values to customize your website's color scheme.
+ * 
+ * HOW TO CUSTOMIZE COLORS:
+ * 1. Change the hex color codes below (e.g., #667eea)
+ * 2. Or change gradient colors for more dynamic effects
+ * 3. Colors will automatically update across the entire website
+ * 
+ * COLOR VARIABLES:
+ * - Primary colors: Main brand colors (used in headers, buttons, links)
+ * - Accent colors: Additional colors for variety
+ * - Category colors: Specific gradients for each product category
+ * 
+ * TO ADD A NEW CATEGORY COLOR:
+ * 1. Add a new --color-categoryname variable below
+ * 2. Add corresponding CSS class in ProductCard.css
+ * 3. Add category mapping in ProductCard.jsx getCategoryColor function
+ */
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: #213547;
+  background-color: #ffffff;
+
+  /* PRIMARY COLORS - Main brand colors used throughout the site */
+  /* Change these to match your brand colors */
+  --primary-purple: #667eea;
+  --primary-violet: #764ba2;
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* ACCENT COLORS - Additional colors for variety and highlights */
+  /* Use these for special elements, buttons, or accents */
+  --accent-coral: #ff6b6b;
+  --accent-orange: #ff8c42;
+  --accent-yellow: #fbbf24;
+  --accent-green: #10b981;
+  --accent-teal: #14b8a6;
+  --accent-blue: #3b82f6;
+  --accent-indigo: #6366f1;
+  --accent-pink: #ec4899;
+  --accent-rose: #f43f5e;
+
+  /* CATEGORY COLORS - Gradient colors for product category badges */
+  /* Each category gets its own color scheme for visual distinction */
+  /* To add a new category color, add: --color-categoryname: gradient; */
+  --color-wedding: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  --color-birthday: linear-gradient(135deg, #fbbf24 0%, #ff8c42 100%);
+  --color-business: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  --color-thankyou: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+  --color-holiday: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 100%);
+  --color-anniversary: linear-gradient(135deg, #ec4899 0%, #764ba2 100%);
+  --color-graduation: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+  --color-babyshower: linear-gradient(135deg, #fbbf24 0%, #ec4899 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  font-weight: 500;
+  color: #667eea;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #764ba2;
+}
+
+button {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}

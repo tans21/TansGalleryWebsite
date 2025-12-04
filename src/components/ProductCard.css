@@ -1,0 +1,279 @@
+/**
+ * PRODUCT CARD STYLES
+ * 
+ * This file styles the product cards displayed on Products and Home pages.
+ * 
+ * KEY STYLES:
+ * - .product-card: Main card container
+ * - .product-image-container: Image wrapper with aspect ratio
+ * - .product-category: Category badge with color-coded gradients
+ * - .product-price: Price display with gradient text
+ * - .add-to-cart-btn: Add to cart button
+ * 
+ * CATEGORY COLORS:
+ * Each category has its own CSS class (e.g., .category-wedding)
+ * Colors are defined in index.css as CSS variables
+ * To add a new category color, add a new .category-* class below
+ * 
+ * CUSTOMIZATION:
+ * - Change card size: Modify border-radius, padding
+ * - Change image aspect ratio: Modify padding-top in .product-image-container
+ * - Update button styles: Modify .add-to-cart-btn
+ * - Change hover effects: Modify .product-card:hover
+ */
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  overflow: hidden;
+  background: #f7fafc;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+
+.product-category {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-wedding {
+  background: var(--color-wedding);
+}
+
+.category-birthday {
+  background: var(--color-birthday);
+}
+
+.category-business {
+  background: var(--color-business);
+}
+
+.category-thankyou {
+  background: var(--color-thankyou);
+}
+
+.category-holiday {
+  background: var(--color-holiday);
+}
+
+.category-anniversary {
+  background: var(--color-anniversary);
+}
+
+.category-graduation {
+  background: var(--color-graduation);
+}
+
+.category-babyshower {
+  background: var(--color-babyshower);
+}
+
+.category-default {
+  background: var(--primary-gradient);
+}
+
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-name {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.product-description {
+  margin: 0 0 1rem 0;
+  color: #718096;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stock-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.stock-badge.in-stock {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.stock-badge.out-of-stock {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.add-to-cart-btn {
+  margin: 0 1.5rem 1.5rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.add-to-cart-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.add-to-cart-btn:disabled {
+  background: #cbd5e0;
+  color: #718096;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .product-image-container {
+    padding-top: 60%;
+  }
+
+  .product-overlay {
+    padding: 0.5rem;
+  }
+
+  .product-category {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .product-info {
+    padding: 1rem;
+  }
+
+  .product-name {
+    font-size: 1rem;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .product-description {
+    font-size: 0.85rem;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+    -webkit-line-clamp: 2;
+  }
+
+  .product-footer {
+    margin-top: 0.5rem;
+  }
+
+  .product-price {
+    font-size: 1.25rem;
+  }
+
+  .stock-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .add-to-cart-btn {
+    margin: 0 1rem 1rem;
+    padding: 0.875rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+
+  .product-card:active {
+    transform: scale(0.98);
+  }
+}
+
