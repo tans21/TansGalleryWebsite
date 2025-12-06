@@ -41,6 +41,9 @@ export const CartProvider = ({ children }) => {
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
+  // State to track when an item is added (for notification)
+  const [showNotification, setShowNotification] = useState(false);
+
   // Auto-save cart to localStorage whenever cartItems change
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -58,6 +61,8 @@ export const CartProvider = ({ children }) => {
       }
       return [...prevItems, { ...product, quantity: 1 }];
     });
+    // Show notification when item is added
+    setShowNotification(true);
   };
 
   const removeFromCart = (productId) => {
@@ -98,6 +103,8 @@ export const CartProvider = ({ children }) => {
         clearCart,
         getTotalItems,
         getTotalPrice,
+        showNotification,
+        setShowNotification,
       }}
     >
       {children}

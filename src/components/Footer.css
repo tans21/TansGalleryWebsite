@@ -78,24 +78,29 @@
   color: #cbd5e0;
   text-decoration: none;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   position: relative;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+  border-bottom-width: 1px;
 }
 
 .footer-section a:hover {
   color: white;
-  transform: translateX(4px);
+  border-bottom-color: #667eea;
+  border-bottom-width: 1px;
+  padding-left: 0.5rem;
 }
 
-.footer-links a::before {
-  content: '→';
-  margin-right: 0.5rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.footer-icon {
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.footer-links a:hover::before {
-  opacity: 1;
+.footer-section a:hover .footer-icon {
+  transform: scale(1.1);
 }
 
 .contact-info p {
@@ -112,10 +117,23 @@
 
 .contact-info a {
   color: #cbd5e0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+  border-bottom-width: 1px;
 }
 
 .contact-info a:hover {
   color: white;
+  border-bottom-color: #667eea;
+  border-bottom-width: 1px;
+  padding-left: 0.5rem;
+}
+
+.contact-info a:hover .footer-icon {
+  transform: scale(1.1);
 }
 
 .social-links {
@@ -126,13 +144,18 @@
 
 .social-link {
   padding: 0.5rem 0;
-  border-bottom: 1px solid transparent;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .social-link:hover {
-  border-bottom-color: #667eea;
-  padding-left: 0.5rem;
+  transform: translateX(4px);
+}
+
+.social-link:hover .footer-icon {
+  transform: scale(1.1);
 }
 
 .footer-bottom {
@@ -242,7 +265,8 @@
   }
 
   .footer-links a:hover {
-    transform: none;
+    border-bottom-color: #667eea;
+    padding-left: 0.5rem;
   }
 
   .footer-links a::before {
@@ -284,8 +308,7 @@
   }
 
   .social-link:hover {
-    padding-left: 0.5rem;
-    border-bottom-color: transparent;
+    transform: translateX(4px);
   }
 }
 
@@ -327,6 +350,8 @@
   }
 
   .footer-links {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100%;
   }
@@ -334,6 +359,7 @@
   .footer-links li {
     width: 100%;
     text-align: center;
+    margin: 0.5rem 0;
   }
 
   .contact-info {

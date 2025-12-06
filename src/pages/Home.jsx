@@ -30,6 +30,7 @@
 
 import { Link } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
+import ButterflyMagic from '../components/ButterflyMagic';
 import { products } from '../data/products';
 import './Home.css';
 
@@ -45,7 +46,11 @@ const Home = () => {
       <section className="hero">
         <div className="hero-content">
           {/* UPDATE HERO TITLE */}
-          <h1 className="hero-title">Beautiful Printed Cards for Every Occasion</h1>
+          <h1 className="hero-title">
+            <ButterflyMagic>
+              Beautiful Printed Cards for Every Occasion
+            </ButterflyMagic>
+          </h1>
           {/* UPDATE HERO SUBTITLE */}
           <p className="hero-subtitle">
             Discover our collection of premium printed cards. From weddings to birthdays,

@@ -35,6 +35,7 @@ import { CartProvider } from './context/CartContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import CartNotification from './components/CartNotification';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
@@ -78,6 +79,9 @@ function App() {
           
           {/* FOOTER - Appears on all pages */}
           <Footer />
+          
+          {/* CART NOTIFICATION - Animated notification when item is added */}
+          <CartNotification />
         </div>
       </Router>
     </CartProvider>

@@ -26,6 +26,7 @@
 
 import logo from '../assets/TansGalleryLogo.png';
 import './Footer.css';
+import { FaHome, FaShoppingBag, FaStar, FaShoppingCart, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -42,10 +43,10 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul className="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/products">Products</a></li>
-            <li><a href="/reviews">Reviews</a></li>
-            <li><a href="/cart">Cart</a></li>
+            <li><a href="/"><FaHome className="footer-icon" /> Home</a></li>
+            <li><a href="/products"><FaShoppingBag className="footer-icon" /> Products</a></li>
+            <li><a href="/reviews"><FaStar className="footer-icon" /> Reviews</a></li>
+            <li><a href="/cart"><FaShoppingCart className="footer-icon" /> Cart</a></li>
             {/* Add more navigation links here if needed */}
           </ul>
         </div>
@@ -55,7 +56,7 @@ const Footer = () => {
           <h4>Contact</h4>
           <div className="contact-info">
             {/* UPDATE EMAIL ADDRESS HERE */}
-            <p><span className="contact-label">Email:</span> <a href="mailto:tanuchauhan212002@gmail.com">tanuchauhan212002@gmail.com</a></p>
+            <p><span className="contact-label">Email:</span> <a href="mailto:tanuchauhan212002@gmail.com"><FaEnvelope className="footer-icon" /> tanuchauhan212002@gmail.com</a></p>
             {/* Add phone number here if needed:
             <p><span className="contact-label">Phone:</span> <a href="tel:+1234567890">(123) 456-7890</a></p>
             */}
@@ -67,8 +68,8 @@ const Footer = () => {
           <h4>Follow Us</h4>
           <div className="social-links">
             {/* UPDATE SOCIAL MEDIA URLs HERE */}
-            <a href="https://www.facebook.com/profile.php?id=61584528864184" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link">Facebook</a>
-            <a href="https://www.instagram.com/tansgallery07?igsh=NXRncXV0MTBiN3pm&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61584528864184" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link"><FaFacebook className="footer-icon" /> Facebook</a>
+            <a href="https://www.instagram.com/tansgallery07?igsh=NXRncXV0MTBiN3pm&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link"><FaInstagram className="footer-icon" /> Instagram</a>
             {/* Add more social media links here:
             <a href="YOUR_TWITTER_URL" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="social-link">Twitter</a>
             */}
@@ -79,7 +80,7 @@ const Footer = () => {
       {/* COPYRIGHT SECTION */}
       <div className="footer-bottom">
         {/* UPDATE COPYRIGHT YEAR AND COMPANY NAME */}
-        <p>&copy; 2024 TansGallery. All rights reserved.</p>
+        <p>&copy; 2025 TansGallery. All rights reserved.</p>
       </div>
     </footer>
   );
