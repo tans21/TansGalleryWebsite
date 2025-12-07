@@ -8,8 +8,10 @@
  * - Quantity controls (increase/decrease)
  * - Remove items from cart
  * - Order summary with totals
+ * - Checkout modal to collect customer details
  * - Checkout button that sends order email
  * - Success animation after checkout
+ * - Quota limit reached modal
  * - Empty cart state
  * 
  * EMAIL INTEGRATION:
@@ -37,41 +39,135 @@ const Cart = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [message, setMessage] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showQuotaModal, setShowQuotaModal] = useState(false);
+  
+  // Checkout Modal State
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    customizationMessage: ''
+  });
+  const [formErrors, setFormErrors] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    // Clear error when user types
+    if (formErrors[name]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [name]: null
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.name.trim()) errors.name = 'Name is required';
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Email is invalid';
+    }
+    return errors;
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+    setFormErrors({});
+  };
+
+  const handleCloseModal = () => {
+    if (!isProcessing) {
+      setShowModal(false);
+    }
+  };
+
+  // Calculate next reset date (6th of next month)
+  const getNextResetDate = () => {
+    const now = new Date();
+    // Start with next month
+    let nextMonth = new Date(now.getFullYear(), now.getMonth() + 1, 6);
+    
+    // If today is after the 6th, it's definitely next month.
+    // If today is before the 6th, wait, is the limit resetting THIS month on the 6th?
+    // If we hit the limit on the 2nd, and it resets on the 6th, then we just need to wait until THIS month's 6th.
+    // However, usually "Monthly" limit means a full billing cycle.
+    // Assuming standard calendar month logic or explicit billing cycle.
+    // The user prompt said: "Try ordering again on 6 'next month'".
+    // So we will strictly look for the NEXT occurrence of the 6th in the NEXT month.
+    
+    // Actually, simple logic based on user request: "next month".
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    // Get next month index (handling December -> January wrap)
+    const nextMonthIndex = (now.getMonth() + 1) % 12;
+    return `${monthNames[nextMonthIndex]}`;
+  };
 
   /**
-   * Handle checkout process
-   * Sends order email with cart items and total price
-   * 
-   * TO CHANGE EMAIL RECIPIENT:
-   * Replace 'tanuchauhan212002@gmail.com' with your email address
+   * Handle final checkout process
+   * Sends order email with cart items, total price, and customer details
    */
-  const handleCheckout = async () => {
+  const handleFinalCheckout = async (e) => {
+    e.preventDefault();
+    
+    // Validate form
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
+    console.log('%c=== CHECKOUT INITIATED ===', 'background: #ff00ff; color: #fff; font-size: 20px; font-weight: bold; padding: 10px; border: 3px solid blue;');
     setIsProcessing(true);
     setMessage(null);
 
     try {
+      console.log('Calling sendOrderEmail...');
       const result = await sendOrderEmail(
         cartItems,
         getTotalPrice(),
-        'tanuchauhan212002@gmail.com'  // CHANGE THIS TO YOUR EMAIL ADDRESS
+        formData.email, // Use customer's email from form
+        formData.name,
+        formData.customizationMessage
       );
 
+      console.log('sendOrderEmail result:', result);
+
       if (result.success) {
-        // Always show success animation, regardless of method
+        console.log('Email sent successfully!');
         setIsProcessing(false);
+        setShowModal(false);
         setShowSuccess(true);
         
         // Clear cart after animation (3 seconds)
         setTimeout(() => {
           clearCart();
           setShowSuccess(false);
+          setFormData({ name: '', email: '', customizationMessage: '' });
         }, 3000);
       } else {
-        setMessage({ type: 'error', text: result.error || 'Failed to send order. Please try again or contact support.' });
+        console.error('Email sending failed:', result.error);
         setIsProcessing(false);
+        
+        // Check for specific quota error
+        if (result.isQuotaError) {
+          setShowModal(false); // Close normal checkout modal
+          setShowQuotaModal(true); // Show quota exceeded modal
+        } else {
+          setMessage({ type: 'error', text: result.error || 'Failed to send order. Please try again or contact support.' });
+        }
       }
     } catch (error) {
-      setMessage({ type: 'error', text: 'An error occurred. Please try again.' });
+      console.error('Exception in handleFinalCheckout:', error);
+      setMessage({ type: 'error', text: `An error occurred: ${error.message || 'Please try again.'}` });
       setIsProcessing(false);
     }
   };
@@ -96,6 +192,7 @@ const Cart = () => {
 
   return (
     <div className="cart-page">
+      {/* SUCCESS ANIMATION OVERLAY */}
       {showSuccess && (
         <div className="success-overlay">
           <div className="success-animation">
@@ -110,6 +207,110 @@ const Cart = () => {
           </div>
         </div>
       )}
+
+      {/* QUOTA LIMIT MODAL */}
+      {showQuotaModal && (
+        <div className="modal-overlay">
+          <div className="modal-content" style={{ textAlign: 'center' }}>
+            <div className="modal-header" style={{ justifyContent: 'center', borderBottom: 'none', paddingBottom: 0 }}>
+              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚠️</div>
+            </div>
+            <h2 style={{ color: '#e53e3e', marginBottom: '1rem' }}>Orders Paused</h2>
+            <p style={{ fontSize: '1.1rem', color: '#4a5568', lineHeight: '1.6', marginBottom: '1.5rem' }}>
+              The order maxed out for this month.<br/>
+              Try ordering again on <strong>6 {getNextResetDate()}</strong>.
+            </p>
+            <p style={{ color: '#718096', marginBottom: '2rem' }}>
+              Or send a mail to:<br/>
+              <a 
+                href="mailto:tanuchauhan212002@gmail.com" 
+                style={{ color: '#667eea', fontWeight: '600', textDecoration: 'none' }}
+              >
+                tanuchauhan212002@gmail.com
+              </a>
+            </p>
+            <button 
+              className="checkout-button" 
+              onClick={() => setShowQuotaModal(false)}
+              style={{ marginTop: 0 }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* CHECKOUT MODAL */}
+      {showModal && !showQuotaModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2>Checkout Details</h2>
+              <button className="close-modal" onClick={handleCloseModal} disabled={isProcessing}>&times;</button>
+            </div>
+            <form onSubmit={handleFinalCheckout} className="checkout-form">
+              <div className="form-group">
+                <label htmlFor="name">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className={formErrors.name ? 'error' : ''}
+                  disabled={isProcessing}
+                  placeholder="Enter your full name"
+                />
+                {formErrors.name && <span className="error-text">{formErrors.name}</span>}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={formErrors.email ? 'error' : ''}
+                  disabled={isProcessing}
+                  placeholder="Enter your email address"
+                />
+                {formErrors.email && <span className="error-text">{formErrors.email}</span>}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="customizationMessage">Customization Request (Optional)</label>
+                <textarea
+                  id="customizationMessage"
+                  name="customizationMessage"
+                  value={formData.customizationMessage}
+                  onChange={handleInputChange}
+                  rows="4"
+                  disabled={isProcessing}
+                  placeholder="Any specific customization details?"
+                ></textarea>
+              </div>
+
+              {message && (
+                <div className={`checkout-message ${message.type}`}>
+                  {message.text}
+                </div>
+              )}
+
+              <div className="modal-footer">
+                <button type="button" className="cancel-button" onClick={handleCloseModal} disabled={isProcessing}>
+                  Cancel
+                </button>
+                <button type="submit" className="submit-order-button" disabled={isProcessing}>
+                  {isProcessing ? 'Sending Order...' : 'Place Order'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       <div className="container">
         <h1 className="page-title">Shopping Cart</h1>
         
@@ -167,17 +368,13 @@ const Cart = () => {
               <span>Total</span>
               <span>${getTotalPrice().toFixed(2)}</span>
             </div>
-            {message && (
-              <div className={`checkout-message ${message.type}`}>
-                {message.text}
-              </div>
-            )}
+            
             <button 
               className="checkout-button"
-              onClick={handleCheckout}
+              onClick={handleOpenModal}
               disabled={isProcessing}
             >
-              {isProcessing ? 'Processing...' : 'Proceed to Checkout'}
+              Proceed to Checkout
             </button>
             <button onClick={clearCart} className="clear-cart-button">
               Clear Cart
@@ -193,4 +390,3 @@ const Cart = () => {
 };
 
 export default Cart;
-

@@ -1,75 +1,83 @@
 # EmailJS Setup Instructions
 
-To enable email functionality for the checkout process, you need to set up EmailJS (free service).
+The email template needs to be updated to support the new checkout features and fix the HTML display issue.
 
-## Step 1: Create EmailJS Account
+## Step 1: Login to EmailJS
+1. Go to [https://www.emailjs.com/](https://www.emailjs.com/) and log in.
+2. Go to **"Email Templates"**.
+3. Click on your existing template (`template_zmyacgf`) to edit it.
 
-1. Go to https://www.emailjs.com/
-2. Sign up for a free account
-3. Verify your email address
+## Step 2: Configure Recipients (CRITICAL)
 
-## Step 2: Add Email Service
+To ensure **BOTH** you (the store owner) and the customer receive the order confirmation:
 
-1. In EmailJS dashboard, go to "Email Services"
-2. Click "Add New Service"
-3. Choose your email provider (Gmail recommended)
-4. Follow the setup instructions to connect your email
-5. Note down your **Service ID**
+1. **To Email:** Set this to `{{to_email}}`
+   * This sends the email to the customer.
 
-## Step 3: Create Email Template
+2. **BCC:** Set this to your email address: `tanuchauhan212002@gmail.com`
+   * This sends a hidden copy to you so you know when an order is placed.
+   * *Note: You can also use the "CC" field if you want the customer to see that you were copied.*
 
-1. Go to "Email Templates" in the dashboard
-2. Click "Create New Template"
-3. **Important:** Make sure to select "HTML" format (not plain text)
-4. Use this HTML template structure:
+3. **Reply To:** Set this to `{{to_email}}`
+   * This allows you to click "Reply" in your email client to write back to the customer directly.
 
-**Subject:** `{{subject}}`
+## Step 3: Update Template Content (CRITICAL FIX)
 
-**Content (HTML):**
+1. Click the **"Source Code"** button (usually looks like `< >` icon) in the toolbar.
+2. **DELETE EVERYTHING** in the source code window.
+3. **COPY AND PASTE** the following HTML code exactly:
+
 ```html
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #667eea; margin-bottom: 20px;">New Order from TansGallery</h2>
-  <p style="color: #4a5568; margin-bottom: 10px;"><strong>Order Date:</strong> {{order_date}}</p>
-  <hr style="border: none; border-top: 2px solid #e2e8f0; margin: 20px 0;">
-  <h3 style="color: #2d3748; margin-bottom: 15px;">Order Details:</h3>
-  {{html_message}}
-  <div style="margin-top: 20px; padding: 15px; background: #f7fafc; border-radius: 8px;">
-    <p style="margin: 0; font-size: 18px; font-weight: 600; color: #2d3748;">
-      Total: <span style="color: #667eea;">{{total_price}}</span>
-    </p>
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 20px;">
+  <!-- HEADER -->
+  <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h2 style="color: #667eea; margin: 0 0 20px 0; text-align: center;">From TansGallery</h2>
+    
+    <!-- ORDER INFO -->
+    <div style="border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 15px;">
+      <p style="color: #4a5568; margin: 5px 0;"><strong>Order Date:</strong> {{order_date}}</p>
+      <p style="color: #4a5568; margin: 5px 0;"><strong>Customer:</strong> {{customer_name}}</p>
+      <p style="color: #4a5568; margin: 5px 0;"><strong>Email:</strong> {{to_email}}</p>
+    </div>
+
+    <!-- ORDER DETAILS HEADER -->
+    <h3 style="color: #2d3748; margin-bottom: 15px;">Order Details:</h3>
+    
+    <!-- ITEMS LIST (Dynamically inserted) -->
+    <!-- Use triple braces {{{ }}} if available to prevent escaping, otherwise double braces usually work if variable is safe -->
+    <div>
+      {{{html_message}}}
+    </div>
+
+    <!-- TOTAL -->
+    <div style="margin-top: 20px; padding: 15px; background: #f7fafc; border-radius: 8px; text-align: right;">
+      <p style="margin: 0; font-size: 18px; font-weight: 600; color: #2d3748;">
+        Total: <span style="color: #667eea;">{{total_price}}</span>
+      </p>
+    </div>
+
+    <!-- CUSTOMIZATION REQUEST -->
+    <div style="margin-top: 30px; padding: 20px; background: #fff5f5; border-left: 4px solid #667eea; border-radius: 8px;">
+      <h4 style="margin: 0 0 10px 0; color: #2d3748;">Customization Request:</h4>
+      <p style="margin: 0; color: #2d3748; line-height: 1.6;">
+        {{customization_message}}
+      </p>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="margin-top: 30px; text-align: center; color: #718096; font-size: 14px; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+      <p>Thank you for purchasing from TansGallery.</p>
+      <p>We will get back to you soon !!!! ❤️</p>
+    </div>
   </div>
-  <p style="margin-top: 20px; color: #718096;">Thank you for your order!</p>
 </div>
 ```
 
-**Note:** The `{{html_message}}` variable contains the formatted product list with images. Make sure your template is set to HTML format to display images properly.
+4. **Important:** If your email client still shows raw HTML tags, try replacing `{{{html_message}}}` with `{{html_message}}` in the code above, or vice-versa.
+   - Note: The variable `html_message` now ONLY contains the list of items, so the rest of the layout (header, footer, etc.) is handled safely by this template.
 
-4. Save the template and note down your **Template ID**
+## Step 4: Save
+Click **"Save"** in the EmailJS dashboard.
 
-## Step 4: Get Public Key
-
-1. Go to "Account" → "General"
-2. Find your **Public Key** (also called API Key)
-
-## Step 5: Update Configuration
-
-Open `src/services/emailService.js` and replace:
-
-- `YOUR_SERVICE_ID` with your Service ID
-- `YOUR_TEMPLATE_ID` with your Template ID  
-- `YOUR_PUBLIC_KEY` with your Public Key
-
-## Step 6: Test
-
-1. Add items to cart
-2. Click "Proceed to Checkout"
-3. Check your email inbox (tanuchauhan212002@gmail.com)
-
-## Free Tier Limits
-
-EmailJS free tier includes:
-- 200 emails per month
-- Perfect for small businesses
-
-If you need more, consider upgrading to a paid plan.
-
+## Step 5: Test
+Go back to your website, refresh the page, and try placing an order again. The email should now be beautifully formatted!
