@@ -209,7 +209,7 @@ export const products = [
   {
     id: 9,
     name: "Merry Christmas Card",
-    description: "Spread the joy of the season with this festive Christmas card featuring classic holiday designs.\n\nSize: 14.8 X 10.5cm",
+    description: "Spread the joy of the season with this festive Christmas card featuring classic holiday designs.\n\nSet of two cards.\n\nSize: 14.8 X 10.5cm",
     price: 299,
     image: "/images/products/christmas/1.png",
     images: [
@@ -223,7 +223,7 @@ export const products = [
   {
     id: 10,
     name: "Merry Christmas Card (SnowMan)",
-    description: "A beautifully crafted holiday card to share warm wishes. Perfect for family and friends.\n\nSize: 14.8 X 10.5cm",
+    description: "A beautifully crafted holiday card to share warm wishes. Perfect for family and friends.\n\nSet of two cards.\n\nSize: 14.8 X 10.5cm",
     price: 299,
     image: "/images/products/christmas2/1.png",
     images: [
@@ -251,7 +251,7 @@ export const products = [
   {
     id: 12,
     name: "Merry Christmas Card 0A",
-    description: "Spread festive cheer with this unique Christmas card design. A perfect way to send your season's greetings.\n\nSize: 14.8 X 10.5cm",
+    description: "Spread festive cheer with this unique Christmas card design. A perfect way to send your season's greetings.\n\nSet of two cards.\n\nSize: 14.8 X 10.5cm",
     price: 299,
     image: "/images/products/christmas4/1.png",
     images: [
@@ -265,7 +265,7 @@ export const products = [
   {
     id: 13,
     name: "Merry Christmas Card 0B",
-    description: "Make your holiday greetings special with this beautifully detailed Christmas card.\n\nSize: 14.8 X 10.5cm",
+    description: "Make your holiday greetings special with this beautifully detailed Christmas card.\n\nSet of two cards.\n\nSize: 14.8 X 10.5cm",
     price: 299,
     image: "/images/products/christmas5/1.png",
     images: [
@@ -279,7 +279,7 @@ export const products = [
   {
     id: 14,
     name: "Merry Christmas Card 0C",
-    description: "A classic and elegant Christmas card design to convey your warmest holiday wishes.\n\nSize: 14.8 X 10.5cm",
+    description: "A classic and elegant Christmas card design to convey your warmest holiday wishes.\n\nSet of two cards.\n\nSize: 14.8 X 10.5cm",
     price: 299,
     image: "/images/products/christmas6/1.png",
     images: [
