@@ -1,0 +1,17 @@
+# Netlify Configuration File
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Configure secrets scanning
+# EmailJS public keys are designed to be public and are embedded in the client bundle
+# Vite environment variables prefixed with VITE_ are expected to be in the build output
+[build.environment]
+  # Omit EmailJS keys from secrets scanning
+  # These are public keys meant to be in the client-side bundle
+  SECRETS_SCAN_OMIT_KEYS = "VITE_EMAILJS_SERVICE_ID,VITE_EMAILJS_TEMPLATE_ID,VITE_EMAILJS_PUBLIC_KEY"
+  
+  # Omit the dist folder from secrets scanning (build output)
+  SECRETS_SCAN_OMIT_PATHS = "dist/**,node_modules/**"
+

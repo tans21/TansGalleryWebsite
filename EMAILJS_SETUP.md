@@ -5,7 +5,7 @@ The email template needs to be updated to support the new checkout features and 
 ## Step 1: Login to EmailJS
 1. Go to [https://www.emailjs.com/](https://www.emailjs.com/) and log in.
 2. Go to **"Email Templates"**.
-3. Click on your existing template (`template_zmyacgf`) to edit it.
+3. Click on your existing template (e.g., `template_xxxxxxxxx`) to edit it.
 
 ## Step 2: Configure Recipients (CRITICAL)
 
