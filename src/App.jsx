@@ -41,6 +41,7 @@ import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Reviews from './pages/Reviews';
+import Customization from './pages/Customization';
 import './App.css';
 
 function App() {
@@ -70,6 +71,9 @@ function App() {
               
               {/* REVIEWS PAGE - Customer reviews and testimonials */}
               <Route path="/reviews" element={<Reviews />} />
+              
+              {/* CUSTOMIZATION PAGE - Information about customization process */}
+              <Route path="/customization" element={<Customization />} />
               
               {/* ADD NEW ROUTES HERE:
               <Route path="/your-page" element={<YourPage />} />

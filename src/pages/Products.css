@@ -80,12 +80,12 @@
 .category-btn:nth-child(9) { animation-delay: 0.7s; }
 
 .category-btn:hover {
-  border-color: #667eea;
-  color: #667eea;
+  border-color: #6FA8A8;
+  color: #6FA8A8;
 }
 
 .category-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6FA8A8 0%, #BFD68E 100%);
   border-color: transparent;
   color: white;
 }

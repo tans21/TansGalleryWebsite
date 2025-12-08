@@ -46,6 +46,7 @@ const Header = () => {
         <nav className="nav">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/products" className="nav-link">Products</Link>
+          <Link to="/customization" className="nav-link">Customization</Link>
           <Link to="/reviews" className="nav-link">Reviews</Link>
           {/* Cart link with badge showing item count */}
           <Link to="/cart" className="nav-link cart-link">

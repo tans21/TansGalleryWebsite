@@ -211,19 +211,20 @@
 .add-to-cart-btn {
   margin: 0 1.5rem 1.5rem;
   padding: 0.75rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-button);
   color: white;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
-  opacity: 0.9;
+  opacity: 1;
   transform: scale(1.02);
+  background: var(--primary-button-hover);
 }
 
 .add-to-cart-btn:active:not(:disabled) {

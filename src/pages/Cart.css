@@ -64,18 +64,19 @@
 .shop-button {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-button);
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
 
 .shop-button:hover {
-  opacity: 0.9;
+  opacity: 1;
   transform: translateY(-2px);
+  background: var(--primary-button-hover);
 }
 
 .cart-content {
@@ -141,7 +142,7 @@
 
 .cart-item-price {
   font-size: 1rem;
-  color: #667eea;
+  color: #6FA8A8;
   font-weight: 600;
 }
 
@@ -169,7 +170,7 @@
   border-radius: 6px;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #667eea;
+  color: #6FA8A8;
   cursor: pointer;
   transition: background 0.2s ease;
   display: flex;
@@ -272,7 +273,7 @@
 .checkout-button {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-button);
   color: white;
   border: none;
   border-radius: 8px;
@@ -280,7 +281,7 @@
   font-weight: 600;
   cursor: pointer;
   margin-top: 1.5rem;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
 }
 
 .checkout-button:hover:not(:disabled) {
@@ -316,14 +317,14 @@
   display: block;
   text-align: center;
   margin-top: 1rem;
-  color: #667eea;
+  color: #6FA8A8;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .continue-shopping:hover {
-  color: #764ba2;
+  color: #BFD68E;
 }
 
 @media (max-width: 968px) {
@@ -394,7 +395,7 @@
   border-radius: 50%;
   display: block;
   stroke-width: 3;
-  stroke: #667eea;
+  stroke: #6FA8A8;
   stroke-miterlimit: 10;
   animation: checkmark-scale 0.5s ease-in-out 0.8s both;
 }
@@ -404,7 +405,7 @@
   stroke-dashoffset: 166;
   stroke-width: 3;
   stroke-miterlimit: 10;
-  stroke: #667eea;
+  stroke: #6FA8A8;
   fill: none;
   animation: checkmark-stroke 1s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
@@ -414,7 +415,7 @@
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
   stroke-width: 3;
-  stroke: #667eea;
+  stroke: #6FA8A8;
   animation: checkmark-stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) 1.2s forwards;
 }
 
@@ -586,8 +587,8 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #6FA8A8;
+  box-shadow: 0 0 0 3px rgba(74, 124, 124, 0.1);
 }
 
 .form-group input.error,
@@ -629,7 +630,7 @@
 .submit-order-button {
   flex: 2;
   padding: 0.75rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-button);
   border: none;
   border-radius: 8px;
   color: white;

@@ -53,7 +53,7 @@
 }
 
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   color: white;
   padding: 6rem 2rem;
   text-align: center;
@@ -101,20 +101,20 @@
 .cta-button {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 100%);
+  background: var(--primary-button);
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 124, 124, 0.4);
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
-  background: linear-gradient(135deg, #ff8c42 0%, #ff6b6b 100%);
+  box-shadow: 0 6px 20px rgba(74, 124, 124, 0.5);
+  background: var(--primary-button-hover);
 }
 
 .featured-section {
@@ -174,19 +174,20 @@
 .view-all-button {
   display: inline-block;
   padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-button);
   color: white;
   text-decoration: none;
   border-radius: 50px;
   font-weight: 600;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
   animation: scaleIn 0.6s ease-out 0.7s forwards;
   opacity: 0;
 }
 
 .view-all-button:hover {
-  opacity: 0.9;
+  background: var(--primary-button-hover);
   transform: translateY(-2px);
+  opacity: 1;
 }
 
 .features-section {

@@ -37,9 +37,11 @@
 
   /* PRIMARY COLORS - Main brand colors used throughout the site */
   /* Change these to match your brand colors */
-  --primary-purple: #667eea;
-  --primary-violet: #764ba2;
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-purple: #6FA8A8; /* Soft Teal */
+  --primary-violet: #BFD68E; /* Soft Lime Green */
+  --primary-gradient: linear-gradient(180deg, #6FA8A8 0%, #BFD68E 100%);
+  --primary-button: #4A7C7C;
+  --primary-button-hover: #3A6363;
 
   /* ACCENT COLORS - Additional colors for variety and highlights */
   /* Use these for special elements, buttons, or accents */
@@ -61,7 +63,7 @@
   --color-business: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
   --color-thankyou: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
   --color-holiday: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 100%);
-  --color-anniversary: linear-gradient(135deg, #ec4899 0%, #764ba2 100%);
+  --color-anniversary: linear-gradient(135deg, #ec4899 0%, #BFD68E 100%);
   --color-graduation: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
   --color-babyshower: linear-gradient(135deg, #fbbf24 0%, #ec4899 100%);
   --color-christmas: linear-gradient(135deg, #dc2626 0%, #16a34a 100%); /* Red to Green gradient */
@@ -80,12 +82,12 @@ body {
 
 a {
   font-weight: 500;
-  color: #667eea;
+  color: #6FA8A8;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #764ba2;
+  color: #BFD68E;
 }
 
 button {

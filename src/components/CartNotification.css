@@ -9,12 +9,12 @@
 }
 
 .cart-notification-content {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6FA8A8 0%, #BFD68E 100%);
   color: white;
   padding: 1.25rem 1.5rem;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4),
-              0 0 20px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 10px 40px rgba(74, 124, 124, 0.4),
+              0 0 20px rgba(74, 124, 124, 0.2);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -41,8 +41,8 @@
 
 .cart-notification-content:hover {
   transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5),
-              0 0 30px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 15px 50px rgba(74, 124, 124, 0.5),
+              0 0 30px rgba(74, 124, 124, 0.3);
 }
 
 .cart-notification-content:hover::before {

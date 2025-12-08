@@ -224,7 +224,7 @@ const Cart = () => {
               Or send a mail to:<br/>
               <a 
                 href="mailto:tanuchauhan212002@gmail.com" 
-                style={{ color: '#667eea', fontWeight: '600', textDecoration: 'none' }}
+                style={{ color: '#6FA8A8', fontWeight: '600', textDecoration: 'none' }}
               >
                 tanuchauhan212002@gmail.com
               </a>
