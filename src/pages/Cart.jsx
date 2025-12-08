@@ -41,7 +41,10 @@ const Cart = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [showQuotaModal, setShowQuotaModal] = useState(false);
   
-  // Checkout Modal State
+  // Calculate totals including shipping
+  const subtotal = getTotalPrice();
+  const shippingCost = subtotal > 300 ? 0 : 49;
+  const finalTotal = subtotal + shippingCost;
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -133,7 +136,7 @@ const Cart = () => {
       console.log('Calling sendOrderEmail...');
       const result = await sendOrderEmail(
         cartItems,
-        getTotalPrice(),
+        finalTotal, // Use final total including shipping
         formData.email, // Use customer's email from form
         formData.name,
         formData.customizationMessage
@@ -358,17 +361,27 @@ const Cart = () => {
             <h2 className="summary-title">Order Summary</h2>
             <div className="summary-row">
               <span>Subtotal</span>
-              <span>₹{getTotalPrice().toFixed(2)}</span>
+              <span>₹{subtotal.toFixed(2)}</span>
             </div>
             <div className="summary-row">
               <span>Shipping</span>
-              <span>Free</span>
+              <span>{shippingCost === 0 ? 'Free' : `₹${shippingCost.toFixed(2)}`}</span>
             </div>
             <div className="summary-row total">
               <span>Total</span>
-              <span>₹{getTotalPrice().toFixed(2)}</span>
+              <span>₹{finalTotal.toFixed(2)}</span>
             </div>
             
+            <p className="shipping-note" style={{ 
+              fontSize: '0.9rem', 
+              color: '#6FA8A8', 
+              textAlign: 'center', 
+              marginTop: '1rem',
+              fontWeight: '500'
+            }}>
+              Free shipping on orders above ₹300
+            </p>
+
             <button 
               className="checkout-button"
               onClick={handleOpenModal}

@@ -95,8 +95,13 @@ const Home = () => {
             {/* FEATURE 2 */}
             <div className="feature">
               <div className="feature-icon">🚀</div>
-              <h3>Fast Shipping</h3>
-              <p>Quick delivery to get your cards when you need them</p>
+              <h3>Shipping Details</h3>
+              <p>
+                Beautiful things take time — your card will be worth the wait.
+                <br />
+                <br />
+                PAN India Delivery
+              </p>
             </div>
             
             {/* FEATURE 3 */}
