@@ -136,7 +136,7 @@ const ProductDetail = () => {
             <div className="product-meta">
               <div className="price-section">
                 <span className="price-label">Price</span>
-                <span className="price-value">${product.price.toFixed(2)}</span>
+                <span className="price-value">₹{product.price.toFixed(2)}</span>
               </div>
               
               <div className="stock-section">

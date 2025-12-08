@@ -140,6 +140,10 @@
   background: var(--color-babyshower);
 }
 
+.category-christmas {
+  background: var(--color-christmas);
+}
+
 .category-default {
   background: var(--primary-gradient);
 }
@@ -295,4 +299,3 @@
     transform: scale(0.98);
   }
 }
-

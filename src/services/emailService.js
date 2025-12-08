@@ -137,14 +137,14 @@ export const sendOrderEmail = async (cartItems, totalPrice, recipientEmail, cust
         <h3 style="margin: 0 0 5px 0; color: #2d3748; font-family: Arial, sans-serif;">${index + 1}. ${item.name}</h3>
         <p style="margin: 0 0 5px 0; color: #718096; font-size: 14px; font-family: Arial, sans-serif;">Category: ${item.category}</p>
         <p style="margin: 0 0 5px 0; color: #4a5568; font-family: Arial, sans-serif;">Quantity: ${item.quantity}</p>
-        <p style="margin: 0; color: #667eea; font-weight: 600; font-size: 16px; font-family: Arial, sans-serif;">$${(item.price * item.quantity).toFixed(2)}</p>
+        <p style="margin: 0; color: #667eea; font-weight: 600; font-size: 16px; font-family: Arial, sans-serif;">₹${(item.price * item.quantity).toFixed(2)}</p>
       </div>
     </div>
   `).join('');
 
   // Format cart items as plain text (images removed)
   const itemsText = cartItems.map((item, index) => {
-    return `${index + 1}. ${item.name} (${item.category}) - Qty: ${item.quantity} - $${(item.price * item.quantity).toFixed(2)}`;
+    return `${index + 1}. ${item.name} (${item.category}) - Qty: ${item.quantity} - ₹${(item.price * item.quantity).toFixed(2)}`;
   }).join('\n');
 
   console.log('Attempting to send email via EmailJS...');
@@ -161,7 +161,7 @@ Email: ${recipientEmail}
 Order Details:
 ${itemsText}
 
-Total: $${totalPrice.toFixed(2)}
+Total: ₹${totalPrice.toFixed(2)}
 
 ${customizationMessage ? `Customization Request:\n${customizationMessage}` : ''}
 
@@ -176,7 +176,7 @@ We will get back to you soon !!!! ❤️`;
       message: textMessage,
       html_message: itemsHTML, // Now contains ONLY the items list
       order_items: itemsText,
-      total_price: `$${totalPrice.toFixed(2)}`,
+      total_price: `₹${totalPrice.toFixed(2)}`,
       order_date: new Date().toLocaleString(),
       customization_message: customizationMessage || 'None'
     };

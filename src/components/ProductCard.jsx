@@ -54,7 +54,8 @@ const ProductCard = ({ product }) => {
       'Holiday': 'category-holiday',
       'Anniversary': 'category-anniversary',
       'Graduation': 'category-graduation',
-      'Baby Shower': 'category-babyshower'
+      'Baby Shower': 'category-babyshower',
+      'Christmas': 'category-christmas'
     };
     return colorMap[category] || 'category-default';
   };
@@ -72,7 +73,7 @@ const ProductCard = ({ product }) => {
           <h3 className="product-name">{product.name}</h3>
           <p className="product-description">{product.description}</p>
           <div className="product-footer">
-            <span className="product-price">${product.price.toFixed(2)}</span>
+            <span className="product-price">₹{product.price.toFixed(2)}</span>
             {product.inStock ? (
               <span className="stock-badge in-stock">In Stock</span>
             ) : (

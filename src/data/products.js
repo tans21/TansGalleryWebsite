@@ -35,6 +35,7 @@
  * - "Anniversary" - Pink/Purple gradient
  * - "Graduation" - Indigo/Blue gradient
  * - "Baby Shower" - Yellow/Pink gradient
+ * - "Christmas" - Red/Green gradient
  * 
  * IMAGE TIPS:
  * - Use high-quality images (recommended: 400x400px or larger)
@@ -140,7 +141,7 @@
  *     images: [
  *       "/images/products/new-product.jpg",
  *       "/images/products/new-product-2.jpg"
- *   ],
+ *     ],
  *     category: "Thank You",  // Must match one of the available categories
  *     inStock: true
  *   }
@@ -151,115 +152,198 @@
 export const products = [
   {
     id: 1,
-    name: "Elegant Wedding Invitation",
-    description: "Beautifully designed wedding invitation card with elegant typography and premium finish. Perfect for your special day.",
-    price: 24.99,
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=400&fit=crop",
+    name: "Wedding Congratulations Card 0A",
+    description: "Beautifully designed wedding congratulations card with elegant typography and premium finish. Perfect for your special day.\n\nSize: 21 X 14.8cm (A5)",
+    price: 349,
+    image: "/images/products/wedding0a/1.png",
     images: [
-      "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?w=400&h=400&fit=crop"
+      "/images/products/wedding0a/1.png",
+      "/images/products/wedding0a/2.png",
+      "/images/products/wedding0a/3.png"
     ],
     category: "Wedding",
     inStock: true
   },
   {
     id: 2,
-    name: "Birthday Celebration Card",
-    description: "Colorful and fun birthday card with modern design. Great for celebrating special birthdays.",
-    price: 12.99,
-    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+    name: "Birthday Celebration Card 0B",
+    description: "Colorful and fun birthday card with modern design. Great for celebrating special birthdays.\n\nSize: 14.8 X 10.5cm",
+    price: 199,
+    image: "/images/products/birthday0b/1.png",
     images: [
-      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=400&fit=crop"
+      "/images/products/birthday0b/1.png",
+      "/images/products/birthday0b/2.png",
+      "/images/products/birthday0b/3.png"
     ],
     category: "Birthday",
     inStock: true
   },
   {
-    id: 3,
-    name: "Business Card Premium",
-    description: "Professional business card with matte finish. Make a lasting impression with premium quality.",
-    price: 19.99,
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop"
-    ],
-    category: "Business",
-    inStock: true
-  },
-  {
     id: 4,
-    name: "Thank You Card Set",
-    description: "Set of 10 beautifully designed thank you cards. Perfect for expressing gratitude.",
-    price: 18.99,
-    image: "https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?w=400&h=400&fit=crop",
+    name: "Thank You Card 0A",
+    description: "Handcrafted to make every “thank you” feel special.\n\nSize: 21 X 14.8cm (A5)",
+    price: 349,
+    image: "/images/products/thankyou0a/1.png",
     images: [
-      "https://images.unsplash.com/photo-1606923829579-0cb981a83e2e?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400&h=400&fit=crop"
+      "/images/products/thankyou0a/1.png",
+      "/images/products/thankyou0a/2.png",
+      "/images/products/thankyou0a/3.png"
     ],
     category: "Thank You",
     inStock: true
   },
   {
-    id: 5,
-    name: "Holiday Greeting Card",
-    description: "Festive holiday card with warm colors and seasonal designs. Spread joy this holiday season.",
-    price: 15.99,
-    image: "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=400&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400&h=400&fit=crop"
-    ],
-    category: "Holiday",
-    inStock: true
-  },
-  {
-    id: 6,
-    name: "Anniversary Card Deluxe",
-    description: "Romantic anniversary card with elegant design. Celebrate your love story beautifully.",
-    price: 22.99,
-    image: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=400&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?w=400&h=400&fit=crop"
-    ],
-    category: "Anniversary",
-    inStock: true
-  },
-  {
     id: 7,
-    name: "Graduation Card",
-    description: "Celebrate achievements with this stylish graduation card. Perfect for congratulating graduates.",
-    price: 14.99,
-    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=400&fit=crop",
+    name: "Graduation Card 0A",
+    description: "Celebrate achievements with this stylish graduation card. Perfect for congratulating graduates.\n\nSize: 21 X 14.8cm (A5)",
+    price: 349,
+    image: "/images/products/graduation0a/1.png",
     images: [
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400&h=400&fit=crop"
+      "/images/products/graduation0a/1.png",
+      "/images/products/graduation0a/2.png",
+      "/images/products/graduation0a/3.png"
     ],
     category: "Graduation",
     inStock: true
   },
   {
-    id: 8,
-    name: "Baby Shower Invitation",
-    description: "Adorable baby shower invitation with cute designs. Welcome the new arrival in style.",
-    price: 21.99,
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop",
+    id: 9,
+    name: "Merry Christmas Card",
+    description: "Spread the joy of the season with this festive Christmas card featuring classic holiday designs.\n\nSize: 14.8 X 10.5cm",
+    price: 299,
+    image: "/images/products/christmas/1.png",
     images: [
-      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400&h=400&fit=crop"
+      "/images/products/christmas/1.png",
+      "/images/products/christmas/2.png",
+      "/images/products/christmas/3.png"
     ],
-    category: "Baby Shower",
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 10,
+    name: "Merry Christmas Card (SnowMan)",
+    description: "A beautifully crafted holiday card to share warm wishes. Perfect for family and friends.\n\nSize: 14.8 X 10.5cm",
+    price: 299,
+    image: "/images/products/christmas2/1.png",
+    images: [
+      "/images/products/christmas2/1.png",
+      "/images/products/christmas2/2.png",
+      "/images/products/christmas2/3.png"
+    ],
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 11,
+    name: "Merry Christmas Card (Santa)",
+    description: "Celebrate the magic of Christmas with this delightful Santa-themed card. Sure to bring smiles to everyone!\n\nSize: 14.8 X 10.5cm",
+    price: 199,
+    image: "/images/products/christmas3/1.png",
+    images: [
+      "/images/products/christmas3/1.png",
+      "/images/products/christmas3/2.png",
+      "/images/products/christmas3/3.png"
+    ],
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 12,
+    name: "Merry Christmas Card 0A",
+    description: "Spread festive cheer with this unique Christmas card design. A perfect way to send your season's greetings.\n\nSize: 14.8 X 10.5cm",
+    price: 299,
+    image: "/images/products/christmas4/1.png",
+    images: [
+      "/images/products/christmas4/1.png",
+      "/images/products/christmas4/2.png",
+      "/images/products/christmas4/3.png"
+    ],
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 13,
+    name: "Merry Christmas Card 0B",
+    description: "Make your holiday greetings special with this beautifully detailed Christmas card.\n\nSize: 14.8 X 10.5cm",
+    price: 299,
+    image: "/images/products/christmas5/1.png",
+    images: [
+      "/images/products/christmas5/1.png",
+      "/images/products/christmas5/2.png",
+      "/images/products/christmas5/3.png"
+    ],
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 14,
+    name: "Merry Christmas Card 0C",
+    description: "A classic and elegant Christmas card design to convey your warmest holiday wishes.\n\nSize: 14.8 X 10.5cm",
+    price: 299,
+    image: "/images/products/christmas6/1.png",
+    images: [
+      "/images/products/christmas6/1.png",
+      "/images/products/christmas6/2.png",
+      "/images/products/christmas6/3.png"
+    ],
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 15,
+    name: "Birthday Celebration Card 0A",
+    description: "Make birthdays extra special with this vibrant and cheerful birthday card.\n\nSize: 14.8 X 10.5cm",
+    price: 199,
+    image: "/images/products/birthday1/1.png",
+    images: [
+      "/images/products/birthday1/1.png",
+      "/images/products/birthday1/2.png",
+      "/images/products/birthday1/3.png"
+    ],
+    category: "Birthday",
+    inStock: true
+  },
+  {
+    id: 16,
+    name: "Merry Christmas Card 0D",
+    description: "Spread festive cheer with this unique Christmas card design. A perfect way to send your season's greetings.\n\nSize: 21 X 14.8cm (A5)",
+    price: 349,
+    image: "/images/products/christmas7/1.png",
+    images: [
+      "/images/products/christmas7/1.png",
+      "/images/products/christmas7/2.png",
+      "/images/products/christmas7/3.png"
+    ],
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 17,
+    name: "Merry Christmas Card 0E",
+    description: "Spread festive cheer with this unique Christmas card design. A perfect way to send your season's greetings.\n\nSize: 21 X 14.8cm (A5)",
+    price: 349,
+    image: "/images/products/christmas9/1.png",
+    images: [
+      "/images/products/christmas9/1.png",
+      "/images/products/christmas9/2.png",
+      "/images/products/christmas9/3.png"
+    ],
+    category: "Christmas",
+    inStock: true
+  },
+  {
+    id: 18,
+    name: "Birthday Celebration Card 0C",
+    description: "Celebrate another year of joy with this lovely birthday card.\n\nSize: 21 X 14.8cm (A5)",
+    price: 349,
+    image: "/images/products/birthday0c/1.png",
+    images: [
+      "/images/products/birthday0c/1.png",
+      "/images/products/birthday0c/2.png",
+      "/images/products/birthday0c/3.png"
+    ],
+    category: "Birthday",
     inStock: true
   }
 ];
-
