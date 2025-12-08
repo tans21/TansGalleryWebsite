@@ -24,6 +24,7 @@
  * - Keep target="_blank" and rel="noopener noreferrer" for security
  */
 
+import { Link } from 'react-router-dom';
 import logo from '../assets/TansGalleryLogo.png';
 import './Footer.css';
 import { FaHome, FaShoppingBag, FaStar, FaShoppingCart, FaEnvelope, FaFacebook, FaInstagram, FaUser } from 'react-icons/fa';
@@ -43,11 +44,11 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul className="footer-links">
-            <li><a href="/"><FaHome className="footer-icon" /> Home</a></li>
-            <li><a href="/products"><FaShoppingBag className="footer-icon" /> Products</a></li>
-            <li><a href="/about"><FaUser className="footer-icon" /> About Me</a></li>
-            <li><a href="/reviews"><FaStar className="footer-icon" /> Reviews</a></li>
-            <li><a href="/cart"><FaShoppingCart className="footer-icon" /> Cart</a></li>
+            <li><Link to="/"><FaHome className="footer-icon" /> Home</Link></li>
+            <li><Link to="/products"><FaShoppingBag className="footer-icon" /> Products</Link></li>
+            <li><Link to="/about"><FaUser className="footer-icon" /> About Me</Link></li>
+            <li><Link to="/reviews"><FaStar className="footer-icon" /> Reviews</Link></li>
+            <li><Link to="/cart"><FaShoppingCart className="footer-icon" /> Cart</Link></li>
             {/* Add more navigation links here if needed */}
           </ul>
         </div>
