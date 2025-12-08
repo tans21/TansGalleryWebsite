@@ -42,6 +42,7 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Reviews from './pages/Reviews';
 import Customization from './pages/Customization';
+import AboutMe from './pages/AboutMe';
 import './App.css';
 
 function App() {
@@ -74,6 +75,9 @@ function App() {
               
               {/* CUSTOMIZATION PAGE - Information about customization process */}
               <Route path="/customization" element={<Customization />} />
+
+              {/* ABOUT ME PAGE - Personal story */}
+              <Route path="/about" element={<AboutMe />} />
               
               {/* ADD NEW ROUTES HERE:
               <Route path="/your-page" element={<YourPage />} />

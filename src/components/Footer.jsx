@@ -26,7 +26,7 @@
 
 import logo from '../assets/TansGalleryLogo.png';
 import './Footer.css';
-import { FaHome, FaShoppingBag, FaStar, FaShoppingCart, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaHome, FaShoppingBag, FaStar, FaShoppingCart, FaEnvelope, FaFacebook, FaInstagram, FaUser } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -45,6 +45,7 @@ const Footer = () => {
           <ul className="footer-links">
             <li><a href="/"><FaHome className="footer-icon" /> Home</a></li>
             <li><a href="/products"><FaShoppingBag className="footer-icon" /> Products</a></li>
+            <li><a href="/about"><FaUser className="footer-icon" /> About Me</a></li>
             <li><a href="/reviews"><FaStar className="footer-icon" /> Reviews</a></li>
             <li><a href="/cart"><FaShoppingCart className="footer-icon" /> Cart</a></li>
             {/* Add more navigation links here if needed */}

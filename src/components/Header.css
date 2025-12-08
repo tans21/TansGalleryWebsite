@@ -1,5 +1,5 @@
 .header {
-  background: var(--primary-gradient);
+  background: linear-gradient(180deg, #4A7C7C 0%, #2F5555 100%);
   color: white;
   padding: 1.5rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
