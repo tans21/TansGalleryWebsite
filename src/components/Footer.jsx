@@ -58,7 +58,7 @@ const Footer = () => {
           <h4>Contact</h4>
           <div className="contact-info">
             {/* UPDATE EMAIL ADDRESS HERE */}
-            <p><span className="contact-label">Email:</span> <a href="mailto:tanuchauhan212002@gmail.com"><FaEnvelope className="footer-icon" /> tanuchauhan212002@gmail.com</a></p>
+            <p><a href="mailto:tanuchauhan212002@gmail.com"><FaEnvelope className="footer-icon" /> tanuchauhan212002@gmail.com</a></p>
             {/* Add phone number here if needed:
             <p><span className="contact-label">Phone:</span> <a href="tel:+1234567890">(123) 456-7890</a></p>
             */}

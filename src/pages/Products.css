@@ -33,7 +33,9 @@
 .products-page {
   min-height: calc(100vh - 200px);
   padding: 3rem 0;
-  background: #f7fafc;
+  background: linear-gradient(135deg, #e0f2fe 0%, #d1fae5 25%, #f0fdf4 50%, #ecfdf5 75%, #e6fffa 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
 .page-title {

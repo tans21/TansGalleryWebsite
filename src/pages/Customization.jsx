@@ -7,6 +7,7 @@
 
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaBolt, FaInfinity, FaPalette, FaCamera, FaHeart } from 'react-icons/fa';
 import './Customization.css';
 
 const Customization = () => {
@@ -169,23 +170,33 @@ const Customization = () => {
           </h2>
           <div className="benefits-grid">
             <div className="benefit-item">
-              <span className="checkmark">✔</span>
+              <span className="benefit-icon">
+                <FaBolt />
+              </span>
               <p>Simple and quick process</p>
             </div>
             <div className="benefit-item">
-              <span className="checkmark">✔</span>
+              <span className="benefit-icon">
+                <FaInfinity />
+              </span>
               <p>Unlimited small edits until you love it</p>
             </div>
             <div className="benefit-item">
-              <span className="checkmark">✔</span>
+              <span className="benefit-icon">
+                <FaPalette />
+              </span>
               <p>Premium printing & colors</p>
             </div>
             <div className="benefit-item">
-              <span className="checkmark">✔</span>
+              <span className="benefit-icon">
+                <FaCamera />
+              </span>
               <p>Option to add personal photos</p>
             </div>
             <div className="benefit-item">
-              <span className="checkmark">✔</span>
+              <span className="benefit-icon">
+                <FaHeart />
+              </span>
               <p>Perfect for gifting and special moments</p>
             </div>
           </div>

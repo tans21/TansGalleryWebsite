@@ -1,7 +1,9 @@
 .about-me-page {
   min-height: calc(100vh - 200px);
   padding: 4rem 0;
-  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #e0f2fe 0%, #d1fae5 25%, #f0fdf4 50%, #ecfdf5 75%, #e6fffa 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
 }
 
 .about-container {
@@ -167,4 +169,6 @@
     font-size: 1.2rem;
   }
 }
+
+
 
